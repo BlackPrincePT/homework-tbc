@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">homework</string>
+    <string name="andes_mountain">Andes Mountain</string>
+    <string name="south_america">South, America</string>
+    <string name="price">Price</string>
+    <string name="overview">Overview</string>
+    <string name="details">Details</string>
+    <string name="time">%1$d Hours</string>
+    <string name="temperature">%1$d°C</string>
+    <string name="book_now">Book Now</string>
+    <string name="location_info">This vast mountain range is renowned for its remarkable diversity in terms of topography and climate. It features towering peaks, active volcanoes, deep canyons, expansive plateaus, and lush valleys. The Andes are also home to</string>
 </resources>

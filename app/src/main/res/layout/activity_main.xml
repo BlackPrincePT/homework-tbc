@@ -7,13 +7,317 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <!-- ============ Image of Location ============ -->
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imgLocation"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/img_location_corners"
+        android:clipToOutline="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/image_mountains"
+        app:layout_constraintBottom_toTopOf="@id/tvOverview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- ============ Back Button ============ -->
+
+    <View
+        android:id="@+id/btnBack"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/top_bar_button"
+        app:layout_constraintStart_toStartOf="@id/imgLocation"
+        app:layout_constraintTop_toTopOf="@id/imgLocation" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginVertical="16dp"
+        android:src="@drawable/icon_arrow_left"
+        app:layout_constraintBottom_toBottomOf="@id/btnBack"
+        app:layout_constraintEnd_toEndOf="@+id/btnBack"
+        app:layout_constraintStart_toStartOf="@id/btnBack"
+        app:layout_constraintTop_toTopOf="@id/btnBack" />
+
+    <!-- ============ Archive Button ============ -->
+
+    <View
+        android:id="@+id/btnArchive"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="19dp"
+        android:background="@drawable/top_bar_button"
+        app:layout_constraintEnd_toEndOf="@id/imgLocation"
+        app:layout_constraintTop_toTopOf="@id/imgLocation" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginVertical="10dp"
+        android:src="@drawable/archive"
+        app:layout_constraintBottom_toBottomOf="@id/btnArchive"
+        app:layout_constraintEnd_toEndOf="@+id/btnArchive"
+        app:layout_constraintStart_toStartOf="@id/btnArchive"
+        app:layout_constraintTop_toTopOf="@id/btnArchive" />
+
+    <!-- ============ Overlay Info on Location Image ============ -->
+
+    <View
+        android:id="@+id/image_info_background"
+        android:layout_width="0dp"
+        android:layout_height="104dp"
+        android:layout_marginStart="21dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginBottom="29dp"
+        android:background="@drawable/image_info_background"
+        app:layout_constraintBottom_toBottomOf="@id/imgLocation"
+        app:layout_constraintEnd_toEndOf="@id/imgLocation"
+        app:layout_constraintStart_toStartOf="@id/imgLocation" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvLocationName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="18dp"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="@id/image_info_background"
+        app:layout_constraintTop_toTopOf="@id/image_info_background" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imgLocationIcon"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginBottom="18dp"
+        android:src="@drawable/fi_rr_marker"
+        app:layout_constraintBottom_toBottomOf="@id/image_info_background"
+        app:layout_constraintStart_toStartOf="@id/image_info_background" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvLocationPlace"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginBottom="18dp"
+        android:textColor="#CAC8C8"
+        app:layout_constraintBottom_toBottomOf="@id/image_info_background"
+        app:layout_constraintStart_toEndOf="@id/imgLocationIcon" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvLocationPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="22dp"
+        android:textColor="#CAC8C8"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@id/image_info_background"
+        app:layout_constraintTop_toTopOf="@id/image_info_background" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvLocationPriceCurrency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#656464"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@id/tvLocationPriceAmount"
+        app:layout_constraintEnd_toStartOf="@id/tvLocationPriceAmount" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvLocationPriceAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="21dp"
+        android:layout_marginBottom="16dp"
+        android:textColor="#CAC8C8"
+        android:textSize="26sp"
+        app:layout_constraintBottom_toBottomOf="@id/image_info_background"
+        app:layout_constraintEnd_toEndOf="@id/image_info_background" />
+
+    <!-- ============ Details Title ============ -->
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvOverview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginBottom="32dp"
+        android:textColor="#1B1B1B"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toTopOf="@id/starBackground"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:textColor="#621B1B1B"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/tvOverview"
+        app:layout_constraintStart_toEndOf="@id/tvOverview" />
+
+    <!-- ============ Clock ============ -->
+
+    <View
+        android:id="@+id/clockBackground"
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginBottom="34dp"
+        android:background="@drawable/info_icon_background"
+        app:layout_constraintBottom_toTopOf="@id/tvLocationInfo"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="9dp"
+        android:src="@drawable/icon_clock"
+        app:layout_constraintBottom_toBottomOf="@id/clockBackground"
+        app:layout_constraintEnd_toEndOf="@id/clockBackground"
+        app:layout_constraintStart_toStartOf="@+id/clockBackground"
+        app:layout_constraintTop_toTopOf="@id/clockBackground" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginBottom="7dp"
+        android:textColor="#7E7E7E"
+        app:layout_constraintBottom_toBottomOf="@id/clockBackground"
+        app:layout_constraintStart_toEndOf="@id/clockBackground" />
+
+    <!-- ============ Temperature ============ -->
+
+    <View
+        android:id="@+id/cloudBackground"
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="130dp"
+        android:layout_marginBottom="34dp"
+        android:background="@drawable/info_icon_background"
+        app:layout_constraintBottom_toTopOf="@id/tvLocationInfo"
+        app:layout_constraintStart_toEndOf="@id/clockBackground" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="8dp"
+        android:src="@drawable/icon_cloud"
+        app:layout_constraintBottom_toBottomOf="@id/cloudBackground"
+        app:layout_constraintEnd_toEndOf="@id/cloudBackground"
+        app:layout_constraintStart_toStartOf="@+id/cloudBackground"
+        app:layout_constraintTop_toTopOf="@id/cloudBackground" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvTemperature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginBottom="7dp"
+        android:textColor="#7E7E7E"
+        app:layout_constraintBottom_toBottomOf="@id/cloudBackground"
+        app:layout_constraintStart_toEndOf="@id/cloudBackground" />
+
+    <!-- ============ Rating ============ -->
+
+    <View
+        android:id="@+id/starBackground"
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="106dp"
+        android:layout_marginBottom="34dp"
+        android:background="@drawable/info_icon_background"
+        app:layout_constraintBottom_toTopOf="@id/tvLocationInfo"
+        app:layout_constraintStart_toEndOf="@id/cloudBackground" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginBottom="8.32dp"
+        android:src="@drawable/vector"
+        app:layout_constraintBottom_toBottomOf="@id/starBackground"
+        app:layout_constraintEnd_toEndOf="@id/starBackground"
+        app:layout_constraintStart_toStartOf="@+id/starBackground"
+        app:layout_constraintTop_toTopOf="@id/starBackground" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvRating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginBottom="7dp"
+        android:textColor="#7E7E7E"
+        app:layout_constraintBottom_toBottomOf="@id/starBackground"
+        app:layout_constraintStart_toEndOf="@id/starBackground" />
+
+    <!-- ============ Details Text ============ -->
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvLocationInfo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="20dp"
+        android:lines="5"
+        android:textColor="#A5A5A5"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@id/book_now_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- ============ Book Now Button ============ -->
+
+    <View
+        android:id="@+id/book_now_button"
+        android:layout_width="0dp"
+        android:layout_height="66dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginEnd="29dp"
+        android:layout_marginBottom="56dp"
+        android:background="@drawable/book_now_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvBookNow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@id/book_now_button"
+        app:layout_constraintEnd_toStartOf="@id/imgSendIcon"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="@+id/book_now_button"
+        app:layout_constraintTop_toTopOf="@id/book_now_button" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imgSendIcon"
+        android:layout_width="23dp"
+        android:layout_height="23dp"
+        android:src="@drawable/send_icon"
+        app:layout_constraintBottom_toBottomOf="@id/book_now_button"
+        app:layout_constraintEnd_toEndOf="@id/book_now_button"
+        app:layout_constraintStart_toEndOf="@+id/tvBookNow"
+        app:layout_constraintTop_toTopOf="@id/book_now_button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
