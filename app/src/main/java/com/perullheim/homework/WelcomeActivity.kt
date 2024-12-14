@@ -1,20 +1,40 @@
 package com.perullheim.homework
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import com.perullheim.homework.databinding.ActivityWelcomeBinding
 
 class WelcomeActivity : AppCompatActivity() {
+
+    private val binding: ActivityWelcomeBinding by lazy {
+        ActivityWelcomeBinding.inflate(layoutInflater)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_welcome)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+
+        setContentView(binding.root)
+
+        setupButtonListeners()
+    }
+
+    private fun setupButtonListeners() {
+        binding.btnLogIn.setOnClickListener {
+            login()
         }
+        binding.btnRegister.setOnClickListener {
+            register()
+        }
+    }
+
+    private fun login() {
+        val intent = Intent(this, LoginActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun register() {
+        val intent = Intent(this, RegisterFirstActivity::class.java)
+        startActivity(intent)
     }
 }
