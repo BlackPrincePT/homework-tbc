@@ -44,7 +44,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginBottom="20dp"
         android:src="@drawable/pfp_img_welcome"
-
+        app:shapeAppearanceOverlay="@style/circleImageView"
         app:layout_constraintBottom_toBottomOf="@id/imgBackground"
         app:layout_constraintStart_toStartOf="@id/imgBackground" />
 

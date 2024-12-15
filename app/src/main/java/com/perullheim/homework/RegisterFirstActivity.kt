@@ -2,10 +2,7 @@ package com.perullheim.homework
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.perullheim.homework.databinding.ActivityRegisterFirstBinding
 
 class RegisterFirstActivity : AppCompatActivity() {
@@ -28,11 +25,20 @@ class RegisterFirstActivity : AppCompatActivity() {
         }
 
         binding.btnNext.setOnClickListener {
-            next()
+            nextClicked()
         }
     }
 
-    private fun next() {
+    private fun nextClicked() {
+        val email = binding.etEmail.text.toString()
+        val password = binding.etPassword.text.toString()
+
+        UserManager.register(email, password) {
+            segueToRegisterSecondActivity()
+        }
+    }
+
+    private fun segueToRegisterSecondActivity() {
         val intent = Intent(this, RegisterSecondActivity::class.java)
         startActivity(intent)
     }

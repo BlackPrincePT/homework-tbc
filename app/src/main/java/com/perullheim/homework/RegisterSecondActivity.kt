@@ -1,10 +1,8 @@
 package com.perullheim.homework
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.perullheim.homework.databinding.ActivityRegisterSecondBinding
 
 class RegisterSecondActivity : AppCompatActivity() {
@@ -18,8 +16,33 @@ class RegisterSecondActivity : AppCompatActivity() {
 
         setContentView(binding.root)
 
+        setupButtonListeners()
+    }
+
+    private fun setupButtonListeners() {
         binding.imgBack.setOnClickListener {
-            finish()
+            UserManager.logout() {
+                finish()
+            }
+        }
+
+        binding.btnSignUp.setOnClickListener {
+            signUpClicked()
         }
     }
+
+
+    private fun signUpClicked() {
+        val username = binding.etUsername.text.toString()
+
+        UserManager.createUser(username) {
+            segueToMainActivity()
+        }
+    }
+
+    private fun segueToMainActivity() {
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+    }
+
 }
