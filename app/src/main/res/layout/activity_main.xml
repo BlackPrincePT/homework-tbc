@@ -7,13 +7,165 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/img_background" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvStatusInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:lines="1"
+        android:text="User Added Succesfully"
+        android:textColor="@color/green"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/viewGreenDot"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/viewGreenDot"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/view_green_circle"
+        app:layout_constraintBottom_toBottomOf="@id/tvAddedUsers"
+        app:layout_constraintEnd_toStartOf="@id/tvAddedUsers"
+        app:layout_constraintTop_toTopOf="@id/tvAddedUsers" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvAddedUsers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="38"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@id/viewRedDot"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/viewRedDot"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/view_red_circle"
+        app:layout_constraintBottom_toBottomOf="@id/tvRemovedUsers"
+        app:layout_constraintEnd_toStartOf="@id/tvRemovedUsers"
+        app:layout_constraintTop_toTopOf="@id/tvRemovedUsers" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvRemovedUsers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="382"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etFirstName"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="64dp"
+        android:background="@drawable/et_white_rounded_corners"
+        android:hint="@string/first_name"
+        android:paddingHorizontal="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etLastName"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/et_white_rounded_corners"
+        android:hint="@string/last_name"
+        android:paddingHorizontal="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etFirstName" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etAge"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/et_white_rounded_corners"
+        android:hint="@string/age"
+        android:paddingHorizontal="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etLastName" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etEmail"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/et_white_rounded_corners"
+        android:hint="@string/email"
+        android:paddingHorizontal="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etAge" />
+
+    <!-- Buttons -->
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnAddUser"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/btn_add_user_background"
+        android:text="@string/add"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/btnRemoveUser"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etEmail" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnRemoveUser"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/btn_remove_user_background"
+        android:text="@string/remove"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/btnUpdateUser"
+        app:layout_constraintStart_toEndOf="@id/btnAddUser"
+        app:layout_constraintTop_toBottomOf="@id/etEmail" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnUpdateUser"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/btn_update_user_background"
+        android:text="@string/update"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btnRemoveUser"
+        app:layout_constraintTop_toBottomOf="@id/etEmail" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
