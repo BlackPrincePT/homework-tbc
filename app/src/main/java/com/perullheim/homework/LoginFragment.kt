@@ -1,13 +1,11 @@
 package com.perullheim.homework
 
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
+
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.widget.addTextChangedListener
 import com.perullheim.homework.databinding.FragmentLoginBinding
 
 class LoginFragment : Fragment() {
@@ -43,17 +41,10 @@ class LoginFragment : Fragment() {
                 parentFragmentManager.popBackStack()
             }
 
+
             tvSignUp.setOnClickListener {
                 val registerFragment = RegisterFragment()
                 moveTo(registerFragment)
-            }
-
-            etEmail.addTextChangedListener {
-                checkFields()
-            }
-
-            etPassword.addTextChangedListener {
-                checkFields()
             }
         }
     }
@@ -62,13 +53,5 @@ class LoginFragment : Fragment() {
         parentFragmentManager.beginTransaction()
             .replace(R.id.main, fragment)
             .commit()
-    }
-
-    private fun checkFields() {
-        with(binding) {
-            val isEmailEmpty = etEmail.text.toString().isEmpty()
-            val isPasswordEmpty = etPassword.text.toString().isEmpty()
-            btnSignIn.isEnabled = !(isEmailEmpty && isPasswordEmpty)
-        }
     }
 }
