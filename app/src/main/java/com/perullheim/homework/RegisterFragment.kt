@@ -70,7 +70,7 @@ class RegisterFragment : Fragment() {
             }
 
             if (UserManager.searchForUser(id) != null) {
-                val errorMsg = "User with such id already exists"
+                val errorMsg = "User with such ID already exists"
                 root.showSnackBar(errorMsg)
                 return
             }

@@ -6,8 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
-import androidx.transition.Visibility
-import com.perullheim.homework.databinding.FragmentRegisterBinding
 import com.perullheim.homework.databinding.FragmentSearchBinding
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -68,7 +66,7 @@ class SearchFragment : Fragment() {
 
         // FIXME --------------
         val birthday = Date(user.birthday.toLong())
-        val formatInfo = SimpleDateFormat("dd MM yyyy", Locale.getDefault())
+        val formatInfo = SimpleDateFormat("dd MMM yyyy", Locale.getDefault())
         val formatedBirthday = formatInfo.format(birthday)
 
         val descText = user.desc ?: "Not Provided"
@@ -94,8 +92,6 @@ class SearchFragment : Fragment() {
             .addToBackStack(null)
             .commit()
     }
-
-
 }
 
 
