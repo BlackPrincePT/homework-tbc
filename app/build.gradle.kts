@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace = "com.perullheim.homework"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.perullheim.homework"
-        minSdk = 24
-        targetSdk = 34
+        minSdk = 26
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -32,6 +32,9 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
+    }
+    buildFeatures {
+        viewBinding = true
     }
 }
 
