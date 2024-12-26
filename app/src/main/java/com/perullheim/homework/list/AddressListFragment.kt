@@ -55,6 +55,11 @@ class AddressListFragment : Fragment(), AddressListAdapter.Listener, AddressDeta
         showAddressDetail(address)
     }
 
+    override fun onLongPress(position: Int) {
+        addressList.removeAt(position)
+        addressListAdapter.notifyItemRemoved(position)
+    }
+
     override fun confirmClicked(address: Address) {
         addressList.removeAll { it.id == address.id }
         addressList.add(0, address)

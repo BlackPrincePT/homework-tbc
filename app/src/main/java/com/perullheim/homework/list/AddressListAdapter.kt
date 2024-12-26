@@ -26,6 +26,7 @@ class AddressListAdapter(private val listener: Listener) :
     interface Listener {
         var selectedAddress: Address?
         fun editAddressClicked(address: Address)
+        fun onLongPress(position: Int)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AddressViewHolder {
@@ -67,7 +68,14 @@ class AddressListAdapter(private val listener: Listener) :
                 tvEdit.setOnClickListener {
                     listener.editAddressClicked(address)
                 }
+
+                root.setOnLongClickListener {
+                    listener.onLongPress(adapterPosition)
+                    true
+                }
             }
+
+
         }
 
         private fun select(address: Address) {
