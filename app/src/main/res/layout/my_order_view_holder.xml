@@ -3,9 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginBottom="20dp"
     android:background="@drawable/order_list_item_background">
-
-<!--    Give shadow to background-->
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvOrderNumber"
@@ -13,7 +12,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
         android:layout_marginTop="18dp"
-        android:text="Order #1514"
         android:textColor="@color/black"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -26,7 +24,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"
         android:layout_marginEnd="12dp"
-        android:text="13/05/2021"
         android:textColor="@color/gray"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -49,7 +46,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
-        android:text="IK987362341"
         android:textColor="@color/black"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@id/tvTrackingNumberTitle"
@@ -72,7 +68,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
-        android:text="2"
         android:textColor="@color/black"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@id/tvQuantityTitle"
@@ -95,7 +90,6 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="19dp"
-        android:text="$100"
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@id/btnDetails"
@@ -109,9 +103,7 @@
         android:layout_marginStart="25dp"
         android:layout_marginTop="31dp"
         android:layout_marginBottom="22dp"
-        android:text="@string/delivered"
         android:textAllCaps="true"
-        android:textColor="@color/delivered"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"

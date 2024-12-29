@@ -8,5 +8,8 @@
     <color name="delivered">#009254</color>
     <color name="canceled">#C50000</color>
 
+    <color name="order_details_background">#FAFAFA</color>
+
     <color name="order_list_item_stroke">#F9F9F9</color>
+    <color name="select_order_status">#43484B</color>
 </resources>
