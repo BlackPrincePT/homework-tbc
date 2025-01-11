@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/myOrdersFragment">
+
+    <fragment
+        android:id="@+id/myOrdersFragment"
+        android:name="com.perullheim.homework.view.my_orders.MyOrdersFragment"
+        android:label="fragment_my_orders"
+        tools:layout="@layout/fragment_my_orders" >
+        <action
+            android:id="@+id/action_myOrdersFragment_to_writeFeedbackFragment"
+            app:destination="@id/writeFeedbackFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/writeFeedbackFragment"
+        android:name="com.perullheim.homework.view.feedback.WriteFeedbackFragment"
+        android:label="fragment_write_feedback"
+        tools:layout="@layout/fragment_write_feedback" />
+</navigation>
