@@ -19,8 +19,13 @@ class MyOrdersRecyclerViewFragment private constructor() : Fragment() {
     // ============ State ============ \\
 
     private val ordersAdapter = MyOrdersRecyclerViewAdapter { pos ->
-        WriteFeedbackFragment { feedback ->
-            Order.exampleOrders[pos].feedback = feedback
+        WriteFeedbackFragment { review ->
+            Order.exampleOrders[pos].copy().apply {
+                feedback = review
+            }.let {
+                Order.exampleOrders[pos] = it
+            }
+
             submitList()
         }.let {
             it.show(parentFragmentManager, it.tag)
