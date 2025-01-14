@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_nav_graph"
+    app:startDestination="@id/mastercardCardFragment">
+
+    <fragment
+        android:id="@+id/mastercardCardFragment"
+        android:name="com.perullheim.homework.view.card.MastercardCardFragment"
+        android:label="MastercardCardFragment" />
+    <fragment
+        android:id="@+id/visaCardFragment"
+        android:name="com.perullheim.homework.view.card.VisaCardFragment"
+        android:label="VisaCardFragment" /><action android:id="@+id/action_global_mastercardCardFragment" app:destination="@id/mastercardCardFragment"/><action android:id="@+id/action_global_visaCardFragment" app:destination="@id/visaCardFragment"/>
+</navigation>

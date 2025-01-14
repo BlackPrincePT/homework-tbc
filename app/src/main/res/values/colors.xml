@@ -2,4 +2,9 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="grey">#7A869A99</color>
+
+    <color name="btn_add_card">#343434</color>
+    <color name="et_add_card">#FCFCFC</color>
+    <color name="add_new">#ED0006</color>
 </resources>
