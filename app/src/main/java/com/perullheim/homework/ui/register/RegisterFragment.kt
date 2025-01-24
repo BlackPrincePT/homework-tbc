@@ -2,36 +2,94 @@ package com.perullheim.homework.ui.register
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.os.bundleOf
+import androidx.core.widget.addTextChangedListener
+import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
+import com.perullheim.homework.R
 import com.perullheim.homework.databinding.FragmentRegisterBinding
 import com.perullheim.homework.helper.ViewBindingFragment
 import com.perullheim.homework.helper.showSnackBar
 import com.perullheim.homework.helper.validateFields
+import com.perullheim.homework.ui.login.LoginFragment
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import kotlin.properties.Delegates
 
-class RegisterFragment : ViewBindingFragment<FragmentRegisterBinding>(FragmentRegisterBinding::inflate) {
+class RegisterFragment :
+    ViewBindingFragment<FragmentRegisterBinding>(FragmentRegisterBinding::inflate) {
 
     private val viewModel: RegisterViewModel by viewModels()
+
+    private var isLoading: Boolean by Delegates.observable(false) { _, _, _ ->
+        binding.btnRegister.text = getString(if (isLoading) R.string.loading else R.string.register)
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        with(binding) {
-            btnRegister.setOnClickListener {
-                if (!listOf(etEmail, etUsername, etPassword).validateFields()) {
-                    view.showSnackBar("Please fill out all fields!")
-                    return@setOnClickListener
-                }
-
-                viewModel.register(
-                    email = etEmail.text.toString(),
-                    username = etUsername.text.toString(),
-                    password = etPassword.text.toString(),
-                )
-            }
+        binding.tvToLogin.setOnClickListener {
+            findNavController().navigateUp()
         }
 
-        viewModel.registerResult.observe(viewLifecycleOwner) { result ->
-            view.showSnackBar(result)
+        setupOnRegisterListener()
+        setupButtonStateManager()
+        setupErrorMessageListener()
+    }
+
+    private fun setupOnRegisterListener() {
+        binding.btnRegister.setOnClickListener {
+            val email = binding.etEmail.text.toString()
+            val password = binding.etPassword.text.toString()
+
+            isLoading = true
+
+            lifecycleScope.launch(Dispatchers.IO) {
+                val isSuccessful = viewModel.register(email, password)
+
+                if (isSuccessful)
+                    with(LoginFragment) {
+                        val credentialsBundle = bundleOf(
+                            EMAIL_KEY to email,
+                            PASSWORD_KEY to password
+                        )
+
+                        setFragmentResult(REGISTER_REQUEST_KEY, credentialsBundle)
+
+                        withContext(Dispatchers.Main) {
+                            findNavController().navigateUp()
+                        }
+                    }
+
+                isLoading = false
+            }
+        }
+    }
+
+    private fun setupErrorMessageListener() {
+        lifecycleScope.launch(Dispatchers.Main) {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.errorMessage.collect { message ->
+                    message?.let { view?.showSnackBar(it) }
+                }
+            }
+        }
+    }
+
+    private fun setupButtonStateManager() {
+        with(binding) {
+            etEmail.addTextChangedListener {
+                btnRegister.isEnabled = listOf(etEmail, etPassword).validateFields()
+            }
+
+            etPassword.addTextChangedListener {
+                btnRegister.isEnabled = listOf(etEmail, etPassword).validateFields()
+            }
         }
     }
 }

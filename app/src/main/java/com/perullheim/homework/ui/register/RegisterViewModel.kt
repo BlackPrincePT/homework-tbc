@@ -1,33 +1,32 @@
 package com.perullheim.homework.ui.register
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.perullheim.homework.service.AuthRequest
-import com.perullheim.homework.service.AuthService
-import kotlinx.coroutines.launch
+import com.perullheim.homework.model.service.AuthRequest
+import com.perullheim.homework.model.service.AuthService
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlin.properties.Delegates
 
 class RegisterViewModel : ViewModel() {
 
-    private val _registerResult = MutableLiveData<String>()
-    val registerResult: LiveData<String> get() = _registerResult
+    private val _errorMessage = MutableStateFlow<String?>(null)
+    val errorMessage: StateFlow<String?> get() = _errorMessage
 
-    fun register(email: String, username: String, password: String) {
+    suspend fun register(email: String, password: String): Boolean {
         val credentials = AuthRequest(email, password)
 
-        viewModelScope.launch {
-            _registerResult.value = try {
-                val response = AuthService.instance.register(credentials)
+        try {
+            val response = AuthService.instance.register(credentials)
 
-                if (response.isSuccessful) {
-                    "Registered successfully!"
-                } else {
-                    "Could not register: ${response.code()}"
-                }
-            } catch (e: Throwable) {
-                "Could not register: ${e.message}"
+            if (response.isSuccessful) {
+                return true
+            } else {
+                _errorMessage.value = "Could not register: ${response.code()}"
             }
+        } catch (e: Throwable) {
+            _errorMessage.value = "Could not register: ${e.message}"
         }
+
+        return false
     }
 }

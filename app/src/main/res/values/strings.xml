@@ -1,11 +1,15 @@
 <resources>
     <string name="app_name">homework</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="welcome">Welcome</string>
     <string name="register">Register</string>
     <string name="login">Login</string>
     <string name="email">Email</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
+    <string name="don_t_have_an_account"><u>Don\'t have an account?</u></string>
+    <string name="remember_me">Remember me</string>
+    <string name="already_have_an_account"><u>Already have an account?</u></string>
+    <string name="please_fill_out_all_fields">Please fill out all fields!</string>
+    <string name="loading">Loading…</string>
+    <string name="log_out">Log Out</string>
 </resources>

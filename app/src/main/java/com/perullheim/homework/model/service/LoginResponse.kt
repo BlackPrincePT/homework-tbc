@@ -1,4 +1,4 @@
-package com.perullheim.homework.service
+package com.perullheim.homework.model.service
 
 import kotlinx.serialization.Serializable
 
