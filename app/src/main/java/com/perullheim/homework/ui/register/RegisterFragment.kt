@@ -15,6 +15,7 @@ import com.perullheim.homework.databinding.FragmentRegisterBinding
 import com.perullheim.homework.helper.ViewBindingFragment
 import com.perullheim.homework.helper.showSnackBar
 import com.perullheim.homework.helper.validateFields
+import com.perullheim.homework.helper.viewLifecycleScope
 import com.perullheim.homework.ui.login.LoginFragment
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -72,11 +73,10 @@ class RegisterFragment :
     }
 
     private fun setupErrorMessageListener() {
-        lifecycleScope.launch(Dispatchers.Main) {
-            repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.errorMessage.collect { message ->
-                    message?.let { view?.showSnackBar(it) }
-                }
+        viewLifecycleScope {
+            viewModel.errorMessage.collect { message ->
+                message?.let { view?.showSnackBar(it) }
+
             }
         }
     }

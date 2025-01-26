@@ -59,4 +59,5 @@ dependencies {
     implementation(libs.converter.kotlinx.serialization)
     implementation(libs.okhttp)
     implementation(libs.androidx.datastore.preferences)
+    implementation (libs.glide)
 }

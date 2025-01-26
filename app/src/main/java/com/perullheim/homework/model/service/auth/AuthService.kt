@@ -1,4 +1,4 @@
-package com.perullheim.homework.model.service
+package com.perullheim.homework.model.service.auth
 
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType

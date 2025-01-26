@@ -6,8 +6,8 @@ import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory.Companion.AP
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.perullheim.homework.model.data.DataStoreManager
-import com.perullheim.homework.model.service.AuthRequest
-import com.perullheim.homework.model.service.AuthService
+import com.perullheim.homework.model.service.auth.AuthRequest
+import com.perullheim.homework.model.service.auth.AuthService
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 

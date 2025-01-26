@@ -1,11 +1,10 @@
 package com.perullheim.homework.ui.register
 
 import androidx.lifecycle.ViewModel
-import com.perullheim.homework.model.service.AuthRequest
-import com.perullheim.homework.model.service.AuthService
+import com.perullheim.homework.model.service.auth.AuthRequest
+import com.perullheim.homework.model.service.auth.AuthService
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlin.properties.Delegates
 
 class RegisterViewModel : ViewModel() {
 

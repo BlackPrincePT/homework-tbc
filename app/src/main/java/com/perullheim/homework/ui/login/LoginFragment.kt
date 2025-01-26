@@ -17,6 +17,7 @@ import com.perullheim.homework.databinding.FragmentLoginBinding
 import com.perullheim.homework.helper.ViewBindingFragment
 import com.perullheim.homework.helper.showSnackBar
 import com.perullheim.homework.helper.validateFields
+import com.perullheim.homework.helper.viewLifecycleScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
@@ -48,7 +49,7 @@ class LoginFragment : ViewBindingFragment<FragmentLoginBinding>(FragmentLoginBin
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewLifecycleOwner.lifecycleScope.launch(Dispatchers.Main) {
+        viewLifecycleScope {
             viewModel.currentUserToken.collect { token ->
                 if (token != null)
                     findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToHomeFragment())
@@ -58,7 +59,7 @@ class LoginFragment : ViewBindingFragment<FragmentLoginBinding>(FragmentLoginBin
         binding.tvToRegister.setOnClickListener {
             findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToRegisterFragment())
         }
-        
+
         setupOnLoginListener()
         setupButtonStateManager()
         setupErrorMessageListener()
@@ -71,7 +72,7 @@ class LoginFragment : ViewBindingFragment<FragmentLoginBinding>(FragmentLoginBin
                 val password = etPassword.text.toString()
                 val shouldRemember = cbRememberMe.isChecked
 
-                lifecycleScope.launch {
+                viewLifecycleScope {
                     isLoading = true
                     viewModel.login(email, password, shouldRemember)
                     isLoading = false
@@ -81,11 +82,9 @@ class LoginFragment : ViewBindingFragment<FragmentLoginBinding>(FragmentLoginBin
     }
 
     private fun setupErrorMessageListener() {
-        lifecycleScope.launch(Dispatchers.Main) {
-            repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.errorMessage.collect { message ->
-                    message?.let { view?.showSnackBar(it) }
-                }
+        viewLifecycleScope {
+            viewModel.errorMessage.collect { message ->
+                message?.let { view?.showSnackBar(it) }
             }
         }
     }
