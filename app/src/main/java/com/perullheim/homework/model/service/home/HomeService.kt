@@ -1,7 +1,6 @@
 package com.perullheim.homework.model.service.home
 
 import kotlinx.serialization.json.Json
-import kotlinx.serialization.json.JsonNamingStrategy
 import okhttp3.MediaType.Companion.toMediaType
 import retrofit2.Response
 import retrofit2.Retrofit

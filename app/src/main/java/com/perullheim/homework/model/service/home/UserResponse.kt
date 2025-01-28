@@ -1,5 +1,6 @@
 package com.perullheim.homework.model.service.home
 
+import com.perullheim.homework.model.data.UserDto
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 

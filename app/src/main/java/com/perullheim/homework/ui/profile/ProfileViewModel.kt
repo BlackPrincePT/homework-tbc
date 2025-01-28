@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory.Companion.APPLICATION_KEY
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
-import com.perullheim.homework.model.data.DataStoreManager
+import com.perullheim.homework.model.source.DataStoreManager
 
 class ProfileViewModel(private val dataStoreManager: DataStoreManager) : ViewModel() {
 

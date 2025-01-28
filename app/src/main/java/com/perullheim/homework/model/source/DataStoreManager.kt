@@ -1,4 +1,4 @@
-package com.perullheim.homework.model.data
+package com.perullheim.homework.model.source
 
 import android.content.Context
 import androidx.datastore.core.DataStore

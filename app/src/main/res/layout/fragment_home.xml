@@ -25,36 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_margin="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btnProfile" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvCurrentPage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textSize="32sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@id/btnListBack"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/btnListBack" />
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/btnListBack"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_margin="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_arrow_back" />
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/btnListForward"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_margin="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_arrow_forward" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,24 +2,17 @@ package com.perullheim.homework.ui.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.perullheim.homework.model.service.home.HomeService
-import com.perullheim.homework.model.service.home.UserResponse
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.launch
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.cachedIn
+import com.perullheim.homework.model.source.HomePagingSource
 
 class HomeViewModel : ViewModel() {
 
-    private val _pageData = MutableStateFlow<UserResponse?>(null)
-    val pageData: StateFlow<UserResponse?> get() = _pageData
+    val pageData = Pager(
+        PagingConfig(pageSize = 6)
+    ) { HomePagingSource.instance }
+        .flow
+        .cachedIn(viewModelScope)
 
-    fun getUsers(page: Int) {
-        viewModelScope.launch(Dispatchers.IO) {
-            val response = HomeService.instance.fetchUsers(page)
-
-            if (response.isSuccessful)
-                _pageData.emit(response.body()!!)
-        }
-    }
 }

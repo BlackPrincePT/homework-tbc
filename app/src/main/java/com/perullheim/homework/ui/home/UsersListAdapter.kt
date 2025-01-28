@@ -2,29 +2,31 @@ package com.perullheim.homework.ui.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.perullheim.homework.databinding.UserItemViewHolderBinding
-import com.perullheim.homework.model.service.home.UserDto
+import com.perullheim.homework.model.data.UserDto
 
-class UsersListAdapter : ListAdapter<UserDto, UsersListAdapter.UserItemViewHolder>(UserDiffUtil()) {
+class UsersListAdapter :
+    PagingDataAdapter<UserDto, UsersListAdapter.UserItemViewHolder>(UserDiffUtil()) {
 
     inner class UserItemViewHolder(private val binding: UserItemViewHolderBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun onBind() {
-            val model = getItem(adapterPosition)
+        fun onBind(position: Int) {
+            val model = getItem(position)
 
-            with(binding) {
-                tvFullName.text = model.fullName
-                tvEmail.text = model.email
+            if (model != null)
+                with(binding) {
+                    tvFullName.text = model.fullName
+                    tvEmail.text = model.email
 
-                Glide.with(itemView)
-                    .load(model.avatar)
-                    .into(imgProfile)
-            }
+                    Glide.with(itemView)
+                        .load(model.avatar)
+                        .into(imgProfile)
+                }
         }
     }
 
@@ -39,7 +41,7 @@ class UsersListAdapter : ListAdapter<UserDto, UsersListAdapter.UserItemViewHolde
     }
 
     override fun onBindViewHolder(holder: UserItemViewHolder, position: Int) {
-        holder.onBind()
+        holder.onBind(position)
     }
 
     private class UserDiffUtil : DiffUtil.ItemCallback<UserDto>() {

@@ -19,9 +19,11 @@ interface AuthService {
 
         val instance: AuthService by lazy {
 
+            val json = Json { ignoreUnknownKeys = true }
+
             val retrofit = Retrofit.Builder()
                 .baseUrl("https://reqres.in/")
-                .addConverterFactory(Json.asConverterFactory("application/json".toMediaType()))
+                .addConverterFactory(json.asConverterFactory("application/json".toMediaType()))
                 .build()
 
             retrofit.create(AuthService::class.java)
