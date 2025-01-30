@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">homework</string>
+    <string name="last_name">Last name</string>
+    <string name="first_name">First name</string>
+    <string name="email">Email</string>
+    <string name="read">Read</string>
+    <string name="save">Save</string>
+    <string name="please_fill_out_all_fields">Please fill out all fields!</string>
+    <string name="user_not_found">User not found</string>
 </resources>
