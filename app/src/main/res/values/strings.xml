@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">homework</string>
+    <string name="you_are_online">You are Online.</string>
+    <string name="you_are_offline">You are Offline.</string>
 </resources>
