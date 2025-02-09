@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.perullheim.homework.ui.login.LoginFragment"
+        android:name="com.perullheim.homework.presentation.login.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login">
         <action
@@ -21,12 +21,12 @@
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
-        android:name="com.perullheim.homework.ui.register.RegisterFragment"
+        android:name="com.perullheim.homework.presentation.register.RegisterFragment"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register" />
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.perullheim.homework.ui.profile.ProfileFragment"
+        android:name="com.perullheim.homework.presentation.profile.ProfileFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_profile" >
         <action
@@ -37,7 +37,7 @@
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.perullheim.homework.ui.home.HomeFragment"
+        android:name="com.perullheim.homework.presentation.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
