@@ -4,6 +4,9 @@ plugins {
 
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.navigation.safeargs.kotlin)
+
+    id("kotlin-kapt")
+    alias(libs.plugins.dagger.hilt.android)
 }
 
 android {
@@ -41,6 +44,10 @@ android {
     }
 }
 
+kapt {
+    correctErrorTypes = true
+}
+
 dependencies {
 
     implementation(libs.androidx.core.ktx)
@@ -61,4 +68,7 @@ dependencies {
     implementation(libs.androidx.datastore.preferences)
     implementation (libs.glide)
     implementation(libs.androidx.paging.runtime)
+
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.android.compiler)
 }

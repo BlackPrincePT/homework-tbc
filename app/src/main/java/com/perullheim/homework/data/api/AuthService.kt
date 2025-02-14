@@ -13,23 +13,8 @@ import retrofit2.http.POST
 
 interface AuthService {
     @POST(ApiConstants.LOGIN_ENDPOINT)
-    suspend fun login(@Body loginRequest: AuthRequest) : Response<LoginResponse>
+    suspend fun login(@Body loginRequest: AuthRequest): Response<LoginResponse>
 
     @POST(ApiConstants.REGISTER_ENDPOINT)
-    suspend fun register(@Body registerRequest: AuthRequest) : Response<RegisterResponse>
-
-    companion object {
-
-        val instance: AuthService by lazy {
-
-            val json = Json { ignoreUnknownKeys = true }
-
-            val retrofit = Retrofit.Builder()
-                .baseUrl(ApiConstants.BASE_ENDPOINT)
-                .addConverterFactory(json.asConverterFactory("application/json".toMediaType()))
-                .build()
-
-            retrofit.create(AuthService::class.java)
-        }
-    }
+    suspend fun register(@Body registerRequest: AuthRequest): Response<RegisterResponse>
 }

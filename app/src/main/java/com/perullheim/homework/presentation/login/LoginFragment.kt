@@ -12,11 +12,13 @@ import com.perullheim.homework.utils.ViewBindingFragment
 import com.perullheim.homework.utils.showSnackBar
 import com.perullheim.homework.utils.validateFields
 import com.perullheim.homework.utils.viewLifecycleScope
+import dagger.hilt.android.AndroidEntryPoint
 import kotlin.properties.Delegates
 
+@AndroidEntryPoint
 class LoginFragment : ViewBindingFragment<FragmentLoginBinding>(FragmentLoginBinding::inflate) {
 
-    private val viewModel: LoginViewModel by viewModels { LoginViewModel.Factory }
+    private val viewModel: LoginViewModel by viewModels()
 
     private var isLoading: Boolean by Delegates.observable(false) { _, _, _ ->
         binding.btnLogin.text = getString(if (isLoading) R.string.loading else R.string.register)

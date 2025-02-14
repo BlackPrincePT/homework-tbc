@@ -8,11 +8,13 @@ import androidx.navigation.fragment.findNavController
 import com.perullheim.homework.databinding.FragmentProfileBinding
 import com.perullheim.homework.utils.ViewBindingFragment
 import com.perullheim.homework.utils.viewLifecycleScope
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class ProfileFragment : ViewBindingFragment<FragmentProfileBinding>(FragmentProfileBinding::inflate) {
 
-    private val viewModel: ProfileViewModel by viewModels { ProfileViewModel.Factory }
+    private val viewModel: ProfileViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

@@ -8,6 +8,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.perullheim.homework.databinding.FragmentHomeBinding
 import com.perullheim.homework.utils.ViewBindingFragment
 import com.perullheim.homework.utils.viewLifecycleScope
+import dagger.hilt.android.AndroidEntryPoint
+
+@AndroidEntryPoint
 class HomeFragment : ViewBindingFragment<FragmentHomeBinding>(FragmentHomeBinding::inflate) {
 
     private val viewModel: HomeViewModel by viewModels()

@@ -5,13 +5,17 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.cachedIn
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class HomeViewModel : ViewModel() {
+@HiltViewModel
+class HomeViewModel @Inject constructor(
+    private val pagingSource: HomePagingSource
+) : ViewModel() {
 
     val pageData = Pager(
-        PagingConfig(pageSize = 6)
-    ) { HomePagingSource.instance }
+        PagingConfig(pageSize = 6),
+    ) { pagingSource }
         .flow
         .cachedIn(viewModelScope)
-
 }

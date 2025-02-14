@@ -1,30 +1,21 @@
 package com.perullheim.homework.presentation.profile
 
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory.Companion.APPLICATION_KEY
-import androidx.lifecycle.viewmodel.initializer
-import androidx.lifecycle.viewmodel.viewModelFactory
 import com.perullheim.homework.data.datastore.DataStoreManager
+import com.perullheim.homework.domain.repositories.UserSessionRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class ProfileViewModel(private val dataStoreManager: DataStoreManager) : ViewModel() {
+@HiltViewModel
+class ProfileViewModel @Inject constructor(
+    private val userSessionRepository: UserSessionRepository
+) : ViewModel() {
 
     val currentUserToken
-        get() = dataStoreManager.userToken
+        get() = userSessionRepository.userToken
 
     suspend fun logout() {
-        dataStoreManager.deleteUserToken()
+        userSessionRepository.deleteUserToken()
         DataStoreManager.oneTimeUserToken.value = null
-    }
-
-    companion object {
-
-        val Factory: ViewModelProvider.Factory = viewModelFactory {
-            initializer {
-                val application = checkNotNull(this[APPLICATION_KEY])
-                val dataStoreManager = DataStoreManager(application)
-                ProfileViewModel(dataStoreManager)
-            }
-        }
     }
 }

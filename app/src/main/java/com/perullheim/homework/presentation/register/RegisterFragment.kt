@@ -15,11 +15,13 @@ import com.perullheim.homework.utils.showSnackBar
 import com.perullheim.homework.utils.validateFields
 import com.perullheim.homework.utils.viewLifecycleScope
 import com.perullheim.homework.presentation.login.LoginFragment
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import kotlin.properties.Delegates
 
+@AndroidEntryPoint
 class RegisterFragment :
     ViewBindingFragment<FragmentRegisterBinding>(FragmentRegisterBinding::inflate) {
 
