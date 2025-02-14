@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/resortsFragment">
+
+    <fragment
+        android:id="@+id/resortsFragment"
+        android:name="com.perullheim.homework.presentation.resorts.ResortsFragment"
+        android:label="fragment_resorts"
+        tools:layout="@layout/fragment_resorts" />
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.perullheim.homework.presentation.chat.ChatFragment"
+        android:label="fragment_chat"
+        tools:layout="@layout/fragment_chat" />
+    <fragment
+        android:id="@+id/favoritesFragment"
+        android:name="com.perullheim.homework.presentation.favorites.FavoritesFragment"
+        android:label="fragment_favorites"
+        tools:layout="@layout/fragment_favorites" />
+</navigation>
