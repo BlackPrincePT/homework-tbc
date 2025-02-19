@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
 
+    alias(libs.plugins.google.devtools.ksp)
+
     id("kotlin-kapt")
 
     // Navigation
@@ -9,6 +11,9 @@ plugins {
 
     // DI
     alias(libs.plugins.dagger.hilt.android)
+
+    // Network
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
@@ -32,6 +37,17 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+
+            buildConfigField("String", "BASE_URL", "\"https://reqres.in/\"")
+            buildConfigField("String", "LOGIN_ENDPOINT", "\"api/login\"")
+            buildConfigField("String", "REGISTER_ENDPOINT", "\"api/register\"")
+            buildConfigField("String", "USERS_ENDPOINT", "\"api/users\"")
+        }
+        debug {
+            buildConfigField("String", "BASE_URL", "\"https://reqres.in/\"")
+            buildConfigField("String", "LOGIN_ENDPOINT", "\"api/login\"")
+            buildConfigField("String", "REGISTER_ENDPOINT", "\"api/register\"")
+            buildConfigField("String", "USERS_ENDPOINT", "\"api/users\"")
         }
     }
     compileOptions {
@@ -43,6 +59,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
 }
 
@@ -68,4 +85,21 @@ dependencies {
     // DI
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
+
+    // UI
+    implementation (libs.glide)
+    implementation(libs.androidx.paging.runtime)
+
+    // Network
+    implementation(libs.retrofit)
+    implementation(libs.converter.kotlinx.serialization)
+    implementation(libs.kotlinx.serialization.json)
+    implementation(libs.okhttp)
+    implementation(libs.logging.interceptor)
+
+    // Cache
+    implementation(libs.androidx.datastore.preferences)
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    ksp(libs.androidx.room.compiler)
 }

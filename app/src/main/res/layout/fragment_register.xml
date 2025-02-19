@@ -7,7 +7,7 @@
     android:background="@color/white"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".presentation.register.RegisterFragment">
+    tools:context=".presentation.auth.register.RegisterFragment">
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvRegisterTitle"
