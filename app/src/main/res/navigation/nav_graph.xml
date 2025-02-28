@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mapsFragment">
+
+    <fragment
+        android:id="@+id/mapsFragment"
+        android:name="com.perullheim.homework.presentation.maps.MapsFragment"
+        android:label="MapsFragment" >
+        <action
+            android:id="@+id/action_mapsFragment_to_markerInfoBottomSheetFragment"
+            app:destination="@id/markerInfoBottomSheetFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/markerInfoBottomSheetFragment"
+        android:name="com.perullheim.homework.presentation.maps.MarkerInfoBottomSheetFragment"
+        android:label="fragment_marker_info_bottom_sheet"
+        tools:layout="@layout/fragment_marker_info_bottom_sheet" >
+        <argument
+            android:name="address"
+            app:argType="com.perullheim.homework.presentation.maps.model.Address" />
+    </dialog>
+</navigation>
