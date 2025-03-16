@@ -1,14 +1,20 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+
+    alias(libs.plugins.kapt)
+    alias(libs.plugins.kotlin.serialization)
+
+    // DI
+    alias(libs.plugins.dagger.hilt.android)
 }
 
 android {
-    namespace = "ge.tkgroup.myapplication"
+    namespace = "com.perullheim.homework"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "ge.tkgroup.myapplication"
+        applicationId = "com.perullheim.homework"
         minSdk = 26
         targetSdk = 35
         versionCode = 1
@@ -49,6 +55,10 @@ android {
     }
 }
 
+kapt {
+    correctErrorTypes = true
+}
+
 dependencies {
 
     implementation(libs.androidx.core.ktx)
@@ -66,4 +76,13 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    implementation(libs.kotlinx.serialization.json)
+
+    // Navigation
+    implementation(libs.navigation.compose)
+
+    // DI
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.android.compiler)
 }
