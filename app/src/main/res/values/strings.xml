@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">homework</string>
+    <string name="no_equipment_found">No equipment found</string>
 </resources>

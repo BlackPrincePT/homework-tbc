@@ -9,9 +9,9 @@ data class EquipmentDto(
     @SerialName("name") val name: String,
     @SerialName("name_de") val nameDe: String,
     @SerialName("createdAt") val createdAt: String,
-    @SerialName("bg1_number") val bg1Number: String?,
-    @SerialName("bg1_variant") val bg1Variant: String?,
-    @SerialName("order_id") val orderId: Int,
+    @SerialName("bg1_number") val bg1Number: String? = null,
+    @SerialName("bg1_variant") val bg1Variant: String? = null,
+    @SerialName("order_id") val orderId: Int? = null,
     @SerialName("main") val main: String?,
-    @SerialName("children") val children: List<EquipmentDto>
+    @SerialName("children") val children: List<EquipmentDto> = emptyList()
 )

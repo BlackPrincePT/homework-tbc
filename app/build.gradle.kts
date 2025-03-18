@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.compose.compiler)
 
     alias(libs.plugins.kapt)
     alias(libs.plugins.kotlin.serialization)
@@ -24,6 +25,9 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+
+        buildConfigField("String", "BASE_URL", "\"https://run.mocky.io/v3/\"")
+        buildConfigField("String", "EQUIPMENT_ENDPOINT", "\"499e0ffd-db69-4955-8d86-86ee60755b9c\"")
     }
 
     buildTypes {
@@ -44,6 +48,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
@@ -84,6 +89,7 @@ dependencies {
 
     // DI
     implementation(libs.hilt.android)
+    implementation(libs.androidx.hilt.navigation.compose)
     kapt(libs.hilt.android.compiler)
 
     // Network
