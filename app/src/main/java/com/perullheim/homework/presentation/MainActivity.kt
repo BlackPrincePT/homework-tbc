@@ -1,4 +1,4 @@
-package com.perullheim.homework.presentation.activity
+package com.perullheim.homework.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

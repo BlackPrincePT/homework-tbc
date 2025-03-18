@@ -1,4 +1,4 @@
-package com.perullheim.homework.app
+package com.perullheim.homework
 
 import android.app.Application
 
