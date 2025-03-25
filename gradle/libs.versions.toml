@@ -41,6 +41,7 @@ hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", ve
 #Firebase
 firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
 firebase-storage-ktx = { module = "com.google.firebase:firebase-storage-ktx" }
+firebase-messaging = { module = "com.google.firebase:firebase-messaging" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
@@ -50,7 +51,7 @@ kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 navigation-safeargs-kotlin = { id = "androidx.navigation.safeargs.kotlin", version.ref = "navigationFragment" }
 
 #DI
-dagger-hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "hiltAndroidVersion"}
+dagger-hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "hiltAndroidVersion" }
 
 #Firebase
 google-services = { id = "com.google.gms.google-services", version.ref = "googleServices" }
