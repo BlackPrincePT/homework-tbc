@@ -16,6 +16,10 @@ navigationFragment = "2.8.7"
 #DI
 hiltAndroidVersion = "2.55"
 
+#Firebase
+googleServices = "4.4.2"
+firebaseBom = "33.11.0"
+
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -34,6 +38,10 @@ androidx-navigation-ui = { module = "androidx.navigation:navigation-ui", version
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hiltAndroidVersion" }
 hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hiltAndroidVersion" }
 
+#Firebase
+firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
+firebase-storage-ktx = { module = "com.google.firebase:firebase-storage-ktx" }
+
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
@@ -43,3 +51,6 @@ navigation-safeargs-kotlin = { id = "androidx.navigation.safeargs.kotlin", versi
 
 #DI
 dagger-hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "hiltAndroidVersion"}
+
+#Firebase
+google-services = { id = "com.google.gms.google-services", version.ref = "googleServices" }

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "807950443982",
+    "project_id": "homework-6050c",
+    "storage_bucket": "homework-6050c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:807950443982:android:2e25783b34ead482c2779f",
+        "android_client_info": {
+          "package_name": "com.perullheim.homework"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDC8X34QYATOcPVtLnlCSjdlN9TpFb547A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

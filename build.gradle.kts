@@ -8,4 +8,7 @@ plugins {
 
     // DI
     alias(libs.plugins.dagger.hilt.android) apply false
+
+    // Firebase
+    alias(libs.plugins.google.services) apply false
 }

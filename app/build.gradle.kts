@@ -9,6 +9,9 @@ plugins {
 
     // DI
     alias(libs.plugins.dagger.hilt.android)
+
+    // Firebase
+    alias(libs.plugins.google.services)
 }
 
 android {
@@ -69,4 +72,8 @@ dependencies {
     // DI
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
+
+    // Firebase
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.storage.ktx)
 }
