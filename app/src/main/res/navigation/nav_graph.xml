@@ -11,7 +11,7 @@
         android:label="fragment_payment"
         tools:layout="@layout/fragment_payment" >
         <action
-            android:id="@+id/action_paymentFragment_to_accountsFragment"
+            android:id="@+id/payment_to_accounts"
             app:destination="@id/accountsFragment" />
     </fragment>
     <dialog

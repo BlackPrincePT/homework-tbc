@@ -2,7 +2,6 @@ package com.perullheim.homework.domain.core
 
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.flow.onEach
 
 sealed interface Resource<out D, out E : Error> {
     data class Success<out D>(val data: D) : Resource<D, Nothing>

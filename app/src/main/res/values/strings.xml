@@ -12,4 +12,12 @@
     <string name="error_not_found">The requested resource was not found.</string>
 
     <string name="balance">Balance: %1$.2f %2$s</string>
+    <string name="from">From</string>
+    <string name="navigate_back">Navigate back</string>
+    <string name="payment">Payment</string>
+    <string name="continue_payment">Continue</string>
+    <string name="to">To</string>
+    <string name="sell">Sell</string>
+    <string name="pitiful_android_developer">Pitiful Android Developer</string>
+    <string name="description">Description</string>
 </resources>

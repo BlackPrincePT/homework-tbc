@@ -13,6 +13,7 @@ class AccountDtoMapper @Inject constructor() : ToDomainMapper<AccountDto, Accoun
         return Account(
             id = data.id,
             accountName = data.accountName,
+            iban = data.accountNumber,
             currency = Currency.valueOf(data.currency),
             cardType = CardType.valueOf(data.cardType),
             balance = data.balance.toDouble(),

@@ -1,5 +1,7 @@
 package com.perullheim.homework.presentation.accounts
 
+import androidx.core.os.bundleOf
+import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -9,6 +11,8 @@ import com.perullheim.homework.presentation.core.base.BaseBottomSheetFragment
 import com.perullheim.homework.presentation.core.error.toStringResId
 import com.perullheim.homework.presentation.core.extension.collectLatest
 import com.perullheim.homework.presentation.core.extension.showSnackBar
+import com.perullheim.homework.presentation.payment.PaymentFragment.Companion.ACCOUNT_REQUEST_KEY
+import com.perullheim.homework.presentation.payment.PaymentFragment.Companion.ACCOUNT_RESULT_KEY
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -51,7 +55,8 @@ class AccountsFragment :
     }
 
     private fun navigateBack(selectedAccountId: Int) {
-        println(selectedAccountId)
+        setFragmentResult(ACCOUNT_REQUEST_KEY, bundleOf(ACCOUNT_RESULT_KEY to selectedAccountId))
+        findNavController().navigateUp()
     }
 
     private fun showError(error: Error) {
