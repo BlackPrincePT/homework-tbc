@@ -15,7 +15,7 @@ class AccountDtoMapper @Inject constructor() : ToDomainMapper<AccountDto, Accoun
             accountName = data.accountName,
             currency = Currency.valueOf(data.currency),
             cardType = CardType.valueOf(data.cardType),
-            balance = data.balance,
+            balance = data.balance.toDouble(),
             cardLogoUrl = data.cardLogoUrl
         )
     }

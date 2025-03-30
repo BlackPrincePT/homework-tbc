@@ -5,6 +5,6 @@ data class Account(
     val accountName: String,
     val currency: Currency,
     val cardType: CardType,
-    val balance: Int,
+    val balance: Double,
     val cardLogoUrl: String?
 )

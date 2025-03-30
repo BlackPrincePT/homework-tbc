@@ -1,14 +1,14 @@
-package com.perullheim.homework.presentation.core
+package com.perullheim.homework.presentation.core.base
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
-abstract class BaseFragment<VB : ViewBinding>(private val inflater: (LayoutInflater, ViewGroup?, Boolean) -> VB) :
-    Fragment() {
+abstract class BaseBottomSheetFragment<VB : ViewBinding>(private val inflater: (LayoutInflater, ViewGroup?, Boolean) -> VB) :
+    BottomSheetDialogFragment() {
 
     private var _binding: VB? = null
     protected val binding
