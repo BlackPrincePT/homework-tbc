@@ -5,14 +5,35 @@ sealed interface Error
 sealed interface DataError: Error {
 
     enum class Network : DataError {
-        NO_CONNECTION,          // Show a message like "No internet connection."
-        TIMEOUT,                // Inform the user the request took too long.
-        BAD_REQUEST,            // Useful for validation errors.
-        UNAUTHORIZED,           // Prompt for re-login or permission issues.
-        FORBIDDEN,              // Notify the user they lack permissions.
-        NOT_FOUND,              // Indicate that a resource could not be found.
-        INTERNAL_SERVER_ERROR,  // Display a generic error message.
-        SERVICE_UNAVAILABLE,    // Inform the user that the service is temporarily down.
-        UNKNOWN                 // Catch-all for unspecified network errors.
+        NO_CONNECTION,
+        TIMEOUT,
+        BAD_REQUEST,
+        UNAUTHORIZED,
+        FORBIDDEN,
+        NOT_FOUND,
+        INTERNAL_SERVER_ERROR,
+        SERVICE_UNAVAILABLE,
+        UNKNOWN
+    }
+}
+
+sealed interface ValidationError: Error {
+
+    enum class AccountNumber: ValidationError {
+        INVALID_FORMAT,
+        INVALID_SIZE,
+        NOT_FOUND
+    }
+
+    enum class PersonalNumber: ValidationError  {
+        INVALID_FORMAT,
+        INVALID_SIZE,
+        NOT_FOUND
+    }
+
+    enum class MobileNumber: ValidationError  {
+        INVALID_FORMAT,
+        INVALID_SIZE,
+        NOT_FOUND
     }
 }

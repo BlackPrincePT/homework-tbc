@@ -1,4 +1,4 @@
-package com.perullheim.homework.domain.usecase
+package com.perullheim.homework.domain.usecase.accounts
 
 import com.perullheim.homework.domain.repository.AccountRepository
 import javax.inject.Inject

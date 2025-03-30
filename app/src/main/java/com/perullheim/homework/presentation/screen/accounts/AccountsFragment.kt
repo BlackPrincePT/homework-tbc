@@ -1,4 +1,4 @@
-package com.perullheim.homework.presentation.accounts
+package com.perullheim.homework.presentation.screen.accounts
 
 import androidx.core.os.bundleOf
 import androidx.fragment.app.setFragmentResult
@@ -11,8 +11,8 @@ import com.perullheim.homework.presentation.core.base.BaseBottomSheetFragment
 import com.perullheim.homework.presentation.core.error.toStringResId
 import com.perullheim.homework.presentation.core.extension.collectLatest
 import com.perullheim.homework.presentation.core.extension.showSnackBar
-import com.perullheim.homework.presentation.payment.PaymentFragment.Companion.ACCOUNT_REQUEST_KEY
-import com.perullheim.homework.presentation.payment.PaymentFragment.Companion.ACCOUNT_RESULT_KEY
+import com.perullheim.homework.presentation.screen.payment.PaymentFragment.Companion.ACCOUNT_REQUEST_KEY
+import com.perullheim.homework.presentation.screen.payment.PaymentFragment.Companion.ACCOUNT_RESULT_KEY
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

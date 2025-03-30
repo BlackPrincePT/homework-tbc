@@ -1,10 +1,10 @@
-package com.perullheim.homework.presentation.accounts
+package com.perullheim.homework.presentation.screen.accounts
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.perullheim.homework.domain.core.onFailure
 import com.perullheim.homework.domain.core.onSuccess
-import com.perullheim.homework.domain.usecase.FetchAccountsUseCase
+import com.perullheim.homework.domain.usecase.accounts.FetchAccountsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableSharedFlow

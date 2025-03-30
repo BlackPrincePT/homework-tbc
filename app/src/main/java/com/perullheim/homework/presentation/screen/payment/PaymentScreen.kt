@@ -1,4 +1,4 @@
-package com.perullheim.homework.presentation.payment
+package com.perullheim.homework.presentation.screen.payment
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -105,7 +105,7 @@ private fun PaymentContent(
             TextField(
                 value = "",
                 onValueChange = { },
-                label = { Text(text = stringResource(R.string.sell)) },
+                label = { Text(text = stringResource(R.string.buy)) },
                 modifier = Modifier
                     .weight(1f)
                     .padding(end = 16.dp)

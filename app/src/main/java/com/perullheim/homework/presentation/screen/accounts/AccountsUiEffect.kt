@@ -1,4 +1,4 @@
-package com.perullheim.homework.presentation.accounts
+package com.perullheim.homework.presentation.screen.accounts
 
 import com.perullheim.homework.domain.core.Error
 
