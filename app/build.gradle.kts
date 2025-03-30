@@ -1,8 +1,12 @@
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
 
-    id("kotlin-kapt")
+    alias(libs.plugins.kapt)
+
+    alias(libs.plugins.kotlin.serialization)
 
     // Navigation
     alias(libs.plugins.navigation.safeargs.kotlin)
@@ -26,6 +30,19 @@ android {
     }
 
     buildTypes {
+        debug {
+            buildConfigField(
+                "String",
+                "BASE_URL",
+                gradleLocalProperties(rootDir, providers).getProperty("BASE_URL")
+            )
+
+            buildConfigField (
+                "String",
+                "ACCOUNTS_ENDPOINT",
+                gradleLocalProperties(rootDir, providers).getProperty("ACCOUNTS_ENDPOINT")
+            )
+        }
         release {
             isMinifyEnabled = false
             proguardFiles(
@@ -43,6 +60,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
 }
 
@@ -61,6 +79,8 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
+    implementation(libs.kotlinx.serialization.json)
+
     // Navigation
     implementation(libs.androidx.navigation.fragment)
     implementation(libs.androidx.navigation.ui)
@@ -68,4 +88,10 @@ dependencies {
     // DI
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
+
+    // Network
+    implementation(libs.retrofit)
+    implementation(libs.converter.kotlinx.serialization)
+    implementation(libs.okhttp)
+    implementation(libs.logging.interceptor)
 }
