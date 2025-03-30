@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/paymentFragment">
+
+    <fragment
+        android:id="@+id/paymentFragment"
+        android:name="com.perullheim.homework.presentation.screen.payment.PaymentFragment"
+        android:label="fragment_payment"
+        tools:layout="@layout/fragment_payment" >
+        <action
+            android:id="@+id/payment_to_accounts"
+            app:destination="@id/accountsFragment" />
+        <action
+            android:id="@+id/payment_to_findAccount"
+            app:destination="@id/findAccountFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/accountsFragment"
+        android:name="com.perullheim.homework.presentation.screen.accounts.AccountsFragment"
+        android:label="fragment_accounts"
+        tools:layout="@layout/fragment_accounts" />
+    <dialog
+        android:id="@+id/findAccountFragment"
+        android:name="com.perullheim.homework.presentation.screen.find.FindAccountFragment"
+        android:label="fragment_find_account"
+        tools:layout="@layout/fragment_find_account" />
+</navigation>
