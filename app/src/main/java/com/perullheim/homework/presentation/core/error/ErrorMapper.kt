@@ -1,17 +1,23 @@
 package com.perullheim.homework.presentation.core.error
 
 import com.perullheim.homework.R
+import com.perullheim.homework.domain.core.BusinessError
 import com.perullheim.homework.domain.core.DataError
 import com.perullheim.homework.domain.core.Error
 import com.perullheim.homework.domain.core.ValidationError
 
 fun Error.toStringResId(): Int = when (this) {
     is DataError -> this.toStringResId()
+    is BusinessError -> this.toStringResId()
     is ValidationError -> this.toStringResId()
 }
 
 private fun DataError.toStringResId(): Int = when (this) {
     is DataError.Network -> this.toStringResId()
+}
+
+private fun BusinessError.toStringResId(): Int = when (this) {
+    is BusinessError.Account -> this.toStringResId()
 }
 
 private fun ValidationError.toStringResId(): Int = when (this) {
@@ -27,6 +33,11 @@ private fun DataError.Network.toStringResId(): Int = when (this) {
     DataError.Network.FORBIDDEN -> R.string.error_forbidden
     DataError.Network.NOT_FOUND -> R.string.error_not_found
     else -> R.string.error_generic
+}
+
+private fun BusinessError.Account.toStringResId(): Int = when (this) {
+    BusinessError.Account.NOT_FOUND -> R.string.error_account_not_found
+    BusinessError.Account.NOT_ENOUGH_BALANCE -> R.string.error_account_not_enough_balance
 }
 
 private fun ValidationError.AccountNumber.toStringResId(): Int = when (this) {

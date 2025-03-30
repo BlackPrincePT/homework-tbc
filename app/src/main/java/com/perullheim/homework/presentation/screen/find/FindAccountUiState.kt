@@ -1,4 +1,7 @@
 package com.perullheim.homework.presentation.screen.find
 
-class FindAccountUiState {
-}
+import com.perullheim.homework.presentation.model.PaymentOption
+
+data class FindAccountUiState(
+    val selectedOption: PaymentOption = PaymentOption.ACCOUNT_NUMBER
+)

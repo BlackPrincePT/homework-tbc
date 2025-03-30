@@ -10,7 +10,7 @@ class ValidateMobileNumberUseCase @Inject constructor() {
         if (mobileNumber.length != 9)
             return Resource.Failure(error = ValidationError.MobileNumber.INVALID_SIZE)
 
-        if (mobileNumber.all { it.isDigit().not() })
+        if (mobileNumber.all { it.isDigit() }.not())
             return Resource.Failure(error = ValidationError.MobileNumber.INVALID_FORMAT)
 
         return Resource.Success(Unit)

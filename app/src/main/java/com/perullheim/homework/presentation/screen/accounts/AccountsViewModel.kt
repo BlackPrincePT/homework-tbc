@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.perullheim.homework.domain.core.onFailure
 import com.perullheim.homework.domain.core.onSuccess
 import com.perullheim.homework.domain.usecase.accounts.FetchAccountsUseCase
+import com.perullheim.homework.presentation.model.mapper.UiAccountMapper
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -17,7 +18,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class AccountsViewModel @Inject constructor(
-    private val fetchAccounts: FetchAccountsUseCase
+    private val fetchAccounts: FetchAccountsUseCase,
+    private val uiAccountMapper: UiAccountMapper
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(AccountsUiState())
@@ -32,13 +34,13 @@ class AccountsViewModel @Inject constructor(
 
     fun onEvent(event: AccountsUiEvent) {
         when (event) {
-            is AccountsUiEvent.OnAccountSelected -> sendEffect(AccountsUiEffect.NavigateBack(event.id))
+            is AccountsUiEvent.OnAccountSelected -> sendEffect(AccountsUiEffect.NavigateBack(event.account))
         }
     }
 
     private fun handleFetchedAccounts() = viewModelScope.launch {
         fetchAccounts()
-            .onSuccess { updateState { copy(accounts = it) } }
+            .onSuccess { updateState { copy(accounts = it.map(uiAccountMapper::mapFromDomain)) } }
             .onFailure { sendEffect(AccountsUiEffect.Failure(error = it)) }
     }
 

@@ -10,7 +10,7 @@ class ValidatePersonalNumberUseCase @Inject constructor() {
         if (personalNumber.length != 11)
             return Resource.Failure(error = ValidationError.PersonalNumber.INVALID_SIZE)
 
-        if (personalNumber.all { it.isDigit().not() })
+        if (personalNumber.all { it.isDigit() }.not())
             return Resource.Failure(error = ValidationError.PersonalNumber.INVALID_FORMAT)
 
         return Resource.Success(Unit)

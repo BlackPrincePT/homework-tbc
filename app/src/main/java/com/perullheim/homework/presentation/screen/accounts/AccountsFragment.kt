@@ -11,8 +11,9 @@ import com.perullheim.homework.presentation.core.base.BaseBottomSheetFragment
 import com.perullheim.homework.presentation.core.error.toStringResId
 import com.perullheim.homework.presentation.core.extension.collectLatest
 import com.perullheim.homework.presentation.core.extension.showSnackBar
+import com.perullheim.homework.presentation.model.UiAccount
 import com.perullheim.homework.presentation.screen.payment.PaymentFragment.Companion.ACCOUNT_REQUEST_KEY
-import com.perullheim.homework.presentation.screen.payment.PaymentFragment.Companion.ACCOUNT_RESULT_KEY
+import com.perullheim.homework.presentation.screen.payment.PaymentFragment.Companion.MY_ACCOUNT_RESULT_KEY
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -48,14 +49,14 @@ class AccountsFragment :
     private fun subscribeToViewEffectUpdates() {
         collectLatest(viewModel.uiEffect) { effect ->
             when (effect) {
-                is AccountsUiEffect.NavigateBack -> navigateBack(effect.selectedAccountId)
+                is AccountsUiEffect.NavigateBack -> navigateBack(effect.selectedAccount)
                 is AccountsUiEffect.Failure -> showError(effect.error)
             }
         }
     }
 
-    private fun navigateBack(selectedAccountId: Int) {
-        setFragmentResult(ACCOUNT_REQUEST_KEY, bundleOf(ACCOUNT_RESULT_KEY to selectedAccountId))
+    private fun navigateBack(selectedAccount: UiAccount) {
+        setFragmentResult(ACCOUNT_REQUEST_KEY, bundleOf(MY_ACCOUNT_RESULT_KEY to selectedAccount))
         findNavController().navigateUp()
     }
 

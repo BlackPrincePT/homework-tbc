@@ -7,23 +7,23 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.perullheim.homework.R
 import com.perullheim.homework.databinding.AccountViewHolderBinding
-import com.perullheim.homework.domain.model.Account
+import com.perullheim.homework.presentation.model.UiAccount
 
 class AccountsAdapter(
     private val onEvent: (AccountsUiEvent) -> Unit
-) : ListAdapter<Account, AccountsAdapter.AccountViewHolder>(ITEM_COMPARATOR) {
+) : ListAdapter<UiAccount, AccountsAdapter.AccountViewHolder>(ITEM_COMPARATOR) {
 
     inner class AccountViewHolder(private val binding: AccountViewHolderBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(account: Account) = with(binding) {
+        fun bind(account: UiAccount) = with(binding) {
             tvAccountName.text = account.accountName
             tvCardType.text = account.cardType.displayName
             tvBalance.text = root.context
                 .getString(R.string.balance, account.balance, account.currency.name)
 
             root.setOnClickListener {
-                onEvent(AccountsUiEvent.OnAccountSelected(account.id))
+                onEvent(AccountsUiEvent.OnAccountSelected(account))
             }
         }
     }
@@ -41,13 +41,13 @@ class AccountsAdapter(
     }
 }
 
-private val ITEM_COMPARATOR = object : DiffUtil.ItemCallback<Account>() {
+private val ITEM_COMPARATOR = object : DiffUtil.ItemCallback<UiAccount>() {
 
-    override fun areItemsTheSame(oldItem: Account, newItem: Account): Boolean {
+    override fun areItemsTheSame(oldItem: UiAccount, newItem: UiAccount): Boolean {
         return oldItem.id == newItem.id
     }
 
-    override fun areContentsTheSame(oldItem: Account, newItem: Account): Boolean {
+    override fun areContentsTheSame(oldItem: UiAccount, newItem: UiAccount): Boolean {
         return oldItem == newItem
     }
 }
