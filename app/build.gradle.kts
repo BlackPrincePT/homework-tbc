@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id("com.google.gms.google-services")
 
     id("kotlin-kapt")
 
@@ -44,10 +45,12 @@ android {
     buildFeatures {
         viewBinding = true
     }
+
 }
 
 kapt {
     correctErrorTypes = true
+
 }
 
 dependencies {
@@ -61,6 +64,10 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
+
+    implementation(platform("com.google.firebase:firebase-bom:33.7.0"))
+    implementation("com.google.firebase:firebase-firestore")
+
     // Navigation
     implementation(libs.androidx.navigation.fragment)
     implementation(libs.androidx.navigation.ui)
@@ -68,4 +75,5 @@ dependencies {
     // DI
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
+
 }
