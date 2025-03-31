@@ -2,14 +2,4 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-
-    <color name="main_background">#FCFCFD</color>
-    
-    <!--Message Bubbles-->
-    <color name="message_self_bubble">#E6E8EC</color>
-    <color name="message_partner_bubble">#F4F5F6</color>
-    <color name="black_25">#40000000</color>
-
-    <color name="message_edit_text_background">#F4F5F6</color>
-    
 </resources>
