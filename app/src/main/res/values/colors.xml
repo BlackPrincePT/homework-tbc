@@ -2,4 +2,9 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="address_send_to">#23262F</color>
+    <color name="address_item_info">#777E90</color>
+    <color name="address_edit">#F80000</color>
+    <color name="address_item_stroke">#F4F4F4</color>
 </resources>
