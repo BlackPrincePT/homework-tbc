@@ -44,8 +44,6 @@ android {
     buildFeatures {
         viewBinding = true
     }
-}
-
 kapt {
     correctErrorTypes = true
 }
