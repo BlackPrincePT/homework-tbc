@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">homework</string>
+    <string name="users_count"><![CDATA[Users -> 0]]></string>
+    <string name="email">Email</string>
+    <string name="get_user_info">Get User Info</string>
+    <string name="create_new_user">Create new user</string>
+    <string name="fullName">Full Name</string>
+    <string name="check_existing_user">Check existing user</string>
+    <string name="add_user">Add User</string>
 </resources>
