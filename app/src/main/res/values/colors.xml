@@ -1,19 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#000000</color>
-    <color name="white">#FFFFFF</color>
-
-    <!--Background-->
-    <color name="background_main">#22343C</color>
-
-    <!--Category-->
-    <color name="category_unselected">#30444E</color>
-    <color name="category_unselected_text">#96A7AF</color>
-
-    <color name="category_selected">#3ED598</color>
-    <color name="category_selected_text">#FFFFFF</color>
-
-    <!--Item-->
-    <color name="item_background">#EDF1FA</color>
-    <color name="item_title">#96A7AF</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
 </resources>
