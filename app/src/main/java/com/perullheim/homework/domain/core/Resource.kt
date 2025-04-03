@@ -45,3 +45,17 @@ suspend fun <D, E : Error> Resource<D, E>.onFailureAsync(action: suspend (E) -> 
 
     return this
 }
+
+fun <D> Resource<D, *>.withData(action: (D?) -> Unit) {
+    when (this) {
+        is Resource.Success -> action(data)
+        is Resource.Failure -> action(null)
+    }
+}
+
+fun <E : Error> Resource<*, E>.withError(action: (E?) -> Unit) {
+    when (this) {
+        is Resource.Success -> action(null)
+        is Resource.Failure -> action(error)
+    }
+}

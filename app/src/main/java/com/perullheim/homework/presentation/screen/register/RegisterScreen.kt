@@ -25,12 +25,19 @@ import com.perullheim.homework.presentation.components.AuthTextField
 import com.perullheim.homework.presentation.components.AuthTitle
 import com.perullheim.homework.presentation.components.DecoratedScreen
 import com.perullheim.homework.presentation.components.PasswordTextField
+import com.perullheim.homework.presentation.util.CollectLatestEffect
 
 @Composable
 fun RegisterScreen(
-    onRegistrationSuccess: () -> Unit,
+    onRegistrationSuccess: (String, String) -> Unit,
     viewModel: RegisterViewModel = hiltViewModel()
 ) {
+    CollectLatestEffect(viewModel.uiEffect) { effect ->
+        when (effect) {
+            is RegisterUiEffect.ShowError -> { /* TODO */ }
+            is RegisterUiEffect.NavigateToLogin -> onRegistrationSuccess(effect.email, effect.password)
+        }
+    }
 
     DecoratedScreen {
         RegisterContent(state = viewModel.uiState, onEvent = viewModel::onEvent)
@@ -112,6 +119,6 @@ private fun RegisterContent(
 @Composable
 private fun RegisterContentPreview() {
     DecoratedScreen {
-    RegisterContent(state = RegisterUiState(), onEvent = { })
+        RegisterContent(state = RegisterUiState(), onEvent = { })
     }
 }

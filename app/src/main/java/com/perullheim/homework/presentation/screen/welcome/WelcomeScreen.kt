@@ -20,6 +20,7 @@ import com.perullheim.homework.R
 import com.perullheim.homework.presentation.components.AuthButton
 import com.perullheim.homework.presentation.components.AuthTitle
 import com.perullheim.homework.presentation.components.DecoratedScreen
+import com.perullheim.homework.presentation.util.CollectLatestEffect
 import ge.tkgroup.myapplication.ui.theme.Violet30
 
 @Composable
@@ -28,6 +29,12 @@ fun WelcomeScreen(
     onLoginClick: () -> Unit,
     viewModel: WelcomeViewModel = hiltViewModel()
 ) {
+    CollectLatestEffect(viewModel.uiEffect) { effect ->
+        when (effect) {
+            WelcomeUiEffect.NavigateToLogin -> onLoginClick()
+            WelcomeUiEffect.NavigateToRegister -> onRegisterClick()
+        }
+    }
 
     DecoratedScreen {
         WelcomeContent(onEvent = viewModel::onEvent)

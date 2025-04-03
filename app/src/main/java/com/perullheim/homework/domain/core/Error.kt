@@ -20,3 +20,21 @@ sealed interface DataError : Error {
 
     }
 }
+
+sealed interface ValidationError : Error {
+
+    enum class Email : ValidationError {
+        EMPTY,
+        INVALID
+    }
+
+    enum class Username : ValidationError {
+        EMPTY,
+        TOO_SHORT
+    }
+
+    enum class Password : ValidationError {
+        EMPTY,
+        TOO_SHORT
+    }
+}

@@ -4,6 +4,14 @@ import androidx.navigation.NavController
 import kotlinx.serialization.Serializable
 
 @Serializable
-object LoginRoute
+data class LoginRoute(
+    val email: String? = null,
+    val password: String? = null
+)
 
-fun NavController.navigateToLogin() = navigate(route = LoginRoute)
+fun NavController.navigateToLogin(
+    email: String? = null,
+    password: String? = null
+) {
+    navigate(route = LoginRoute(email, password))
+}
