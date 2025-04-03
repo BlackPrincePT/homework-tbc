@@ -8,6 +8,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.zIndex
 
 @Composable
 fun DecoratedScreen(
@@ -21,6 +22,7 @@ fun DecoratedScreen(
             modifier = Modifier
                 .align(Alignment.TopStart)
                 .offset(x = (-48).dp, y = (-48).dp)
+                .zIndex(-1f)
         )
 
         content()
@@ -29,6 +31,7 @@ fun DecoratedScreen(
             modifier = Modifier
                 .align(Alignment.BottomStart)
                 .offset(x = (-64).dp, y = (64).dp)
+                .zIndex(-1f)
         )
     }
 }

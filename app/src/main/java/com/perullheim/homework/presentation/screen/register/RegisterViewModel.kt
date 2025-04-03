@@ -1,4 +1,4 @@
-package com.perullheim.homework.presentation.screen.login
+package com.perullheim.homework.presentation.screen.register
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -14,21 +14,21 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class LoginViewModel @Inject constructor(
-    private val login: LoginUseCase
+class RegisterViewModel @Inject constructor(
+    private val register: LoginUseCase
 ) : ViewModel() {
 
-    var uiState by mutableStateOf(LoginUiState())
+    var uiState by mutableStateOf(RegisterUiState())
         private set
 
-    private val _uiEffect = MutableSharedFlow<LoginUiEffect>()
+    private val _uiEffect = MutableSharedFlow<RegisterUiEffect>()
     val uiEffect = _uiEffect.asSharedFlow()
 
-    fun onEvent(event: LoginUiEvent) {
+    fun onEvent(event: RegisterUiEvent) {
 
     }
 
-    private fun sendEffect(effect: LoginUiEffect) {
+    private fun sendEffect(effect: RegisterUiEffect) {
         viewModelScope.launch(Dispatchers.Main.immediate) {
             _uiEffect.emit(effect)
         }

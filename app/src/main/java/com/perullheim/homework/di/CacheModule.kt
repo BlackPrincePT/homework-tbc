@@ -5,7 +5,6 @@ import androidx.room.Room
 import com.perullheim.homework.data.local.datastore.DataStoreManager
 import com.perullheim.homework.data.local.room.RoomManager
 import com.perullheim.homework.domain.cache.CacheManager
-import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
