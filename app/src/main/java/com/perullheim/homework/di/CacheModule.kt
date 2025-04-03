@@ -1,6 +1,7 @@
 package com.perullheim.homework.di
 
 import android.content.Context
+import android.util.Log
 import androidx.room.Room
 import com.perullheim.homework.data.local.datastore.DataStoreManager
 import com.perullheim.homework.data.local.room.RoomManager
@@ -17,6 +18,7 @@ import javax.inject.Singleton
 object CacheModule {
 
     @Provides
+    @Singleton
     fun provideDatastore(@ApplicationContext context: Context): CacheManager {
         return DataStoreManager(context)
     }

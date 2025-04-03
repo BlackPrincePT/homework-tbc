@@ -2,6 +2,7 @@ package com.perullheim.homework.presentation.screen.login
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -13,6 +14,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.CheckboxDefaults
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -44,8 +46,14 @@ fun LoginScreen(
         }
     }
 
-    DecoratedScreen {
-        LoginContent(state = viewModel.uiState, onEvent = viewModel::onEvent)
+    if (viewModel.uiState.isLoading.not()) {
+        DecoratedScreen {
+            LoginContent(state = viewModel.uiState, onEvent = viewModel::onEvent)
+        }
+    } else {
+        Box {
+            CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
+        }
     }
 }
 
