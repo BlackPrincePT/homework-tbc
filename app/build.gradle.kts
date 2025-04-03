@@ -4,6 +4,8 @@ plugins {
     alias(libs.plugins.compose.compiler)
 
     alias(libs.plugins.kapt)
+    alias(libs.plugins.ksp)
+
     alias(libs.plugins.kotlin.serialization)
 
     // DI
@@ -28,6 +30,12 @@ android {
     }
 
     buildTypes {
+        debug {
+            buildConfigField("String", "BASE_URL", "\"https://reqres.in/\"")
+            buildConfigField("String", "LOGIN_ENDPOINT", "\"api/login\"")
+            buildConfigField("String", "REGISTER_ENDPOINT", "\"api/register\"")
+            buildConfigField("String", "USERS_ENDPOINT", "\"api/users\"")
+        }
         release {
             isMinifyEnabled = false
             proguardFiles(
@@ -45,6 +53,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
@@ -83,7 +92,23 @@ dependencies {
     // Navigation
     implementation(libs.navigation.compose)
 
+    // UI
+    implementation(libs.androidx.material.icons.extended)
+
     // DI
     implementation(libs.hilt.android)
+    implementation(libs.androidx.hilt.navigation.compose)
     kapt(libs.hilt.android.compiler)
+
+    // Network
+    implementation(libs.retrofit)
+    implementation(libs.converter.kotlinx.serialization)
+    implementation(libs.okhttp)
+    implementation(libs.logging.interceptor)
+
+    // Cache
+    implementation(libs.androidx.datastore.preferences)
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    ksp(libs.androidx.room.compiler)
 }
