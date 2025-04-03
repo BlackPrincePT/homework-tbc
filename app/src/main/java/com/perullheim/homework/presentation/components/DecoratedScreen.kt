@@ -21,7 +21,7 @@ fun DecoratedScreen(
         GradientCircle(
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .offset(x = (-48).dp, y = (-48).dp)
+                .offset(x = (-64).dp, y = (-64).dp)
                 .zIndex(-1f)
         )
 
@@ -30,7 +30,7 @@ fun DecoratedScreen(
         SolidCircle(
             modifier = Modifier
                 .align(Alignment.BottomStart)
-                .offset(x = (-64).dp, y = (64).dp)
+                .offset(x = (-96).dp, y = (96).dp)
                 .zIndex(-1f)
         )
     }
