@@ -20,11 +20,12 @@ import com.perullheim.homework.R
 import com.perullheim.homework.presentation.components.AuthButton
 import com.perullheim.homework.presentation.components.AuthTitle
 import com.perullheim.homework.presentation.components.DecoratedScreen
-import com.perullheim.homework.presentation.screen.register.RegisterUiEvent
 import ge.tkgroup.myapplication.ui.theme.Violet30
 
 @Composable
 fun WelcomeScreen(
+    onRegisterClick: () -> Unit,
+    onLoginClick: () -> Unit,
     viewModel: WelcomeViewModel = hiltViewModel()
 ) {
 

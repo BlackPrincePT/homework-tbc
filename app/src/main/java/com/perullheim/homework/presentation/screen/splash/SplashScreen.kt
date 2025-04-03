@@ -9,12 +9,15 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.perullheim.homework.R
 import com.perullheim.homework.presentation.components.DecoratedScreen
 
 @Composable
 fun SplashScreen(
-
+    onSessionRestored: () -> Unit,
+    onAuthenticationRequired: () -> Unit,
+    viewModel: SplashViewModel = hiltViewModel()
 ) {
 
     DecoratedScreen {

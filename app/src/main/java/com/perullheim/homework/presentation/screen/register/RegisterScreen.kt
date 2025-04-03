@@ -25,10 +25,10 @@ import com.perullheim.homework.presentation.components.AuthTextField
 import com.perullheim.homework.presentation.components.AuthTitle
 import com.perullheim.homework.presentation.components.DecoratedScreen
 import com.perullheim.homework.presentation.components.PasswordTextField
-import com.perullheim.homework.presentation.screen.login.LoginUiEvent
 
 @Composable
 fun RegisterScreen(
+    onRegistrationSuccess: () -> Unit,
     viewModel: RegisterViewModel = hiltViewModel()
 ) {
 
