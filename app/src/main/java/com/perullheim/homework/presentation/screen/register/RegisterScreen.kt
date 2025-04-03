@@ -81,7 +81,6 @@ private fun RegisterContent(
             leadingIconImageVector = Icons.Default.Email,
             modifier = Modifier
                 .fillMaxWidth()
-                .height(50.dp)
                 .padding(horizontal = 30.dp)
         )
 
@@ -94,7 +93,6 @@ private fun RegisterContent(
             leadingIconImageVector = Icons.Default.Person,
             modifier = Modifier
                 .fillMaxWidth()
-                .height(50.dp)
                 .padding(horizontal = 30.dp)
         )
 
@@ -106,7 +104,6 @@ private fun RegisterContent(
             hint = stringResource(R.string.password),
             modifier = Modifier
                 .fillMaxWidth()
-                .height(50.dp)
                 .padding(horizontal = 30.dp)
         )
 

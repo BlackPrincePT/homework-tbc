@@ -24,7 +24,7 @@ class SplashViewModel @Inject constructor(
     }
 
     private fun checkSavedSession() = viewModelScope.launch {
-        if (hasSavedSession())
+        if (hasSavedSession().also(::println))
             sendEffect(SplashUiEffect.NavigateToHome)
         else
             sendEffect(SplashUiEffect.NavigateToWelcome)
@@ -32,7 +32,7 @@ class SplashViewModel @Inject constructor(
 
     private fun sendEffect(effect: SplashUiEffect) {
         viewModelScope.launch(Dispatchers.Main.immediate) {
-            sendEffect(effect)
+            _uiEffect.emit(effect)
         }
     }
 }

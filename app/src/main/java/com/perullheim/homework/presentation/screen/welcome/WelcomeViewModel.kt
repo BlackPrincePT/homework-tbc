@@ -16,7 +16,10 @@ class WelcomeViewModel @Inject constructor() : ViewModel() {
     val uiEffect = _uiEffect.asSharedFlow()
 
     fun onEvent(event: WelcomeUiEvent) {
-
+        when (event) {
+            WelcomeUiEvent.OnLoginClick -> sendEffect(WelcomeUiEffect.NavigateToLogin)
+            WelcomeUiEvent.OnRegisterClick -> sendEffect(WelcomeUiEffect.NavigateToRegister)
+        }
     }
 
     private fun sendEffect(effect: WelcomeUiEffect) {

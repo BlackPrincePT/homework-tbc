@@ -18,7 +18,6 @@ import javax.inject.Singleton
 object CacheModule {
 
     @Provides
-    @Singleton
     fun provideDatastore(@ApplicationContext context: Context): CacheManager {
         return DataStoreManager(context)
     }

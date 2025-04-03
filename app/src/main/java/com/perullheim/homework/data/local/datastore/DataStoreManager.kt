@@ -6,19 +6,15 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.preferencesDataStore
 import com.perullheim.homework.domain.cache.CacheManager
-import dagger.hilt.android.qualifiers.ApplicationContext
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
-import javax.inject.Inject
+import kotlinx.coroutines.withContext
 
 private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "tbc.preferences")
 
 class DataStoreManager(private val context: Context) : CacheManager {
-
-    init {
-        println(context.dataStore)
-    }
 
     override fun <T> observe(key: Preferences.Key<T>): Flow<T?> {
         return context.dataStore.data.map { it[key] }
