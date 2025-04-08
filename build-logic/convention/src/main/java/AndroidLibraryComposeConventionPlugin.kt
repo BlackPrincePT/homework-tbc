@@ -1,6 +1,6 @@
 
 import com.android.build.gradle.LibraryExtension
-import com.pegio.convention.configureAndroidCompose
+import com.perullheim.convention.configureAndroidCompose
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.apply

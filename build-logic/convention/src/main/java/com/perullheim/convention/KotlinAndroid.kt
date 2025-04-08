@@ -1,4 +1,4 @@
-package com.pegio.convention
+package com.perullheim.convention
 
 import com.android.build.api.dsl.CommonExtension
 import org.gradle.api.JavaVersion
@@ -24,6 +24,9 @@ internal fun Project.configureKotlinAndroid(
             targetCompatibility = JavaVersion.VERSION_11
             isCoreLibraryDesugaringEnabled = true
         }
+        buildFeatures {
+            buildConfig = true
+        }
     }
 
     extensions.configure<KotlinAndroidProjectExtension> {
@@ -32,16 +35,5 @@ internal fun Project.configureKotlinAndroid(
 
     dependencies {
         "coreLibraryDesugaring"(libs.findLibrary("android.desugarJdkLibs").get())
-    }
-}
-
-internal fun Project.configureKotlinJvm() {
-    extensions.configure<JavaPluginExtension> {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
-
-    extensions.configure<KotlinJvmProjectExtension> {
-        compilerOptions.jvmTarget = JvmTarget.JVM_11
     }
 }

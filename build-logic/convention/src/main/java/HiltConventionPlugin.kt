@@ -1,6 +1,6 @@
-import com.pegio.convention.implementation
-import com.pegio.convention.ksp
-import com.pegio.convention.libs
+import com.perullheim.convention.implementation
+import com.perullheim.convention.ksp
+import com.perullheim.convention.libs
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.apply
@@ -12,7 +12,7 @@ class HiltConventionPlugin : Plugin<Project> {
             apply(plugin = "com.google.devtools.ksp")
 
             dependencies {
-                ksp(libs.findLibrary("hilt.compiler").get())
+                ksp(libs.findLibrary("hilt.android.compiler").get())
             }
 
             pluginManager.withPlugin("org.jetbrains.kotlin.jvm") {
