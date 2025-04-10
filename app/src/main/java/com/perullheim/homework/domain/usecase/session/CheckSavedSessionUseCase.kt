@@ -1,4 +1,4 @@
-package com.perullheim.homework.domain.usecase
+package com.perullheim.homework.domain.usecase.session
 
 import com.perullheim.homework.domain.cache.CacheManager
 import com.perullheim.homework.domain.cache.PreferenceKeys

@@ -14,7 +14,7 @@ interface UserDao {
     fun fetchUsers(): Flow<List<UserEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun cacheUser(user: UserEntity)
+    suspend fun cacheUsers(users: List<UserEntity>)
 
     @Query("DELETE FROM users_table")
     suspend fun clearUsersCache()

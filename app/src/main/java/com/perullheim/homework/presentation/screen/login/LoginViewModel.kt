@@ -8,7 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.perullheim.homework.domain.core.onFailure
 import com.perullheim.homework.domain.core.onSuccess
 import com.perullheim.homework.domain.core.withError
-import com.perullheim.homework.domain.usecase.LoginUseCase
+import com.perullheim.homework.domain.usecase.login.LoginUseCase
 import com.perullheim.homework.domain.usecase.validator.ValidateEmailUseCase
 import com.perullheim.homework.domain.usecase.validator.ValidatePasswordUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel

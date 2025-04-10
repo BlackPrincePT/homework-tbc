@@ -5,8 +5,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.perullheim.homework.domain.usecase.ClearSessionUseCase
-import com.perullheim.homework.domain.usecase.GetCurrentSessionUseCase
+import com.perullheim.homework.domain.usecase.session.ClearSessionUseCase
+import com.perullheim.homework.domain.usecase.session.GetCurrentSessionUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableSharedFlow

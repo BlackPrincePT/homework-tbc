@@ -1,4 +1,4 @@
-package com.perullheim.homework.domain.usecase
+package com.perullheim.homework.domain.usecase.register
 
 import com.perullheim.homework.domain.core.DataError
 import com.perullheim.homework.domain.core.Resource
