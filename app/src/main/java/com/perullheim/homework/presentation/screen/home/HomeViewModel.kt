@@ -8,11 +8,13 @@ import androidx.lifecycle.viewModelScope
 import com.perullheim.homework.domain.usecase.user.LoadMoreUsersUseCase
 import com.perullheim.homework.domain.usecase.user.ObserveCachedUserStreamUseCase
 import com.perullheim.homework.domain.usecase.user.RefreshUsersUseCase
+import com.perullheim.homework.presentation.util.ConnectivityManagerNetworkMonitor
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -20,6 +22,7 @@ import javax.inject.Inject
 class HomeViewModel @Inject constructor(
     private val loadMoreUsers: LoadMoreUsersUseCase,
     private val refreshUsers: RefreshUsersUseCase,
+    private val networkMonitor: ConnectivityManagerNetworkMonitor,
     observeCachedUserStream: ObserveCachedUserStreamUseCase
 ) : ViewModel() {
 
@@ -31,8 +34,11 @@ class HomeViewModel @Inject constructor(
 
     init {
         viewModelScope.launch {
-            refreshUsers()
-            loadMoreUsers()
+            if (networkMonitor.isOnline.first()) {
+                refreshUsers()
+                loadMoreUsers()
+            }
+
             observeCachedUserStream().collectLatest {
                 updateState { copy(users = it) }
             }
@@ -42,7 +48,7 @@ class HomeViewModel @Inject constructor(
     fun onEvent(event: HomeUiEvent) = viewModelScope.launch {
         when (event) {
             HomeUiEvent.RefreshUsers -> refreshUsers()
-            HomeUiEvent.LoadMoreUsers -> loadMoreUsers().also { println("jeeee") }
+            HomeUiEvent.LoadMoreUsers -> loadMoreUsers()
         }
     }
 
