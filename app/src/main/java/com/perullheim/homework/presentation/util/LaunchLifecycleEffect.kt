@@ -11,11 +11,12 @@ import kotlinx.coroutines.flow.collectLatest
 
 @Composable
 fun LaunchLifecycleEffect(
+    key: Any? = null,
     block: suspend CoroutineScope.() -> Unit
 ) {
     val lifecycleOwner = LocalLifecycleOwner.current
 
-    LaunchedEffect(lifecycleOwner) {
+    LaunchedEffect(key1 = lifecycleOwner, key2 = key) {
         lifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
             block.invoke(this)
         }

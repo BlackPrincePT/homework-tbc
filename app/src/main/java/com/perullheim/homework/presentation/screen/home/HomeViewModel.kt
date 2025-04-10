@@ -31,6 +31,8 @@ class HomeViewModel @Inject constructor(
 
     init {
         viewModelScope.launch {
+            refreshUsers()
+            loadMoreUsers()
             observeCachedUserStream().collectLatest {
                 updateState { copy(users = it) }
             }
@@ -40,7 +42,7 @@ class HomeViewModel @Inject constructor(
     fun onEvent(event: HomeUiEvent) = viewModelScope.launch {
         when (event) {
             HomeUiEvent.RefreshUsers -> refreshUsers()
-            HomeUiEvent.LoadMoreUsers -> loadMoreUsers()
+            HomeUiEvent.LoadMoreUsers -> loadMoreUsers().also { println("jeeee") }
         }
     }
 
