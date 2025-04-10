@@ -50,7 +50,6 @@ fun AuthTextField(
         label = {
             Text(
                 text = hint,
-                fontSize = 24.sp,
                 color = Violet30,
                 modifier = Modifier
                     .padding(start = 40.dp)

@@ -1,6 +1,8 @@
-package com.perullheim.homework.presentation.navigation.route
+package com.perullheim.homework.presentation.screen.login
 
 import androidx.navigation.NavController
+import androidx.navigation.NavGraphBuilder
+import androidx.navigation.compose.composable
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -14,4 +16,14 @@ fun NavController.navigateToLogin(
     password: String? = null
 ) {
     navigate(route = LoginRoute(email, password))
+}
+
+fun NavGraphBuilder.loginScreen(
+    onLoginSuccess: () -> Unit
+) {
+    composable<LoginRoute> {
+        LoginScreen(
+            onLoginSuccess = onLoginSuccess
+        )
+    }
 }

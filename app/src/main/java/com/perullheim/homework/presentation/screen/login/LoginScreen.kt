@@ -41,7 +41,7 @@ fun LoginScreen(
 ) {
     CollectLatestEffect(viewModel.uiEffect) { effect ->
         when (effect) {
-            is LoginUiEffect.ShowError -> { TODO() }
+            is LoginUiEffect.ShowError -> { println(effect.error) }
             LoginUiEffect.NavigateToHome -> onLoginSuccess()
         }
     }
