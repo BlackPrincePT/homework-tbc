@@ -1,15 +1,3 @@
 <resources>
     <string name="app_name">homework</string>
-    <string name="valid_thru">Valid Thru</string>
-    <string name="cardholder_name">Cardholder Name</string>
-    <string name="mastercard">Mastercard</string>
-    <string name="card_management">Card Management</string>
-    <string name="add_new">Add new+</string>
-    <string name="card_number">Card Number</string>
-    <string name="expires">Expires</string>
-    <string name="cvv">cvv</string>
-    <string name="add_card">Add Card</string>
-    <string name="are_you_sure_you_want_to_delete_the_card">Are you sure you want to delete the card?</string>
-    <string name="no">No</string>
-    <string name="yes">Yes</string>
 </resources>
