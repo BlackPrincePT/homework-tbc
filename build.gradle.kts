@@ -3,4 +3,10 @@ plugins {
     alias(libs.plugins.android.application) apply false
     alias(libs.plugins.kotlin.android) apply false
     alias(libs.plugins.navigation.safeargs.kotlin) apply false
+
+    // Navigation
+    alias(libs.plugins.navigation.safeargs.kotlin) apply false
+
+    // DI
+    alias(libs.plugins.dagger.hilt.android) apply false
 }
