@@ -1,14 +1,3 @@
 <resources>
     <string name="app_name">homework</string>
-    <string name="price_template">$%.2f</string>
-    <string name="color_and_quantity_template">%1$s | qty = %2$d</string>
-    <string name="track_order">Track Order</string>
-    <string name="leave_review">Leave Review</string>
-    <string name="buy_again">Buy Again</string>
-    <string name="cancel">Cancel</string>
-    <string name="submit">Submit</string>
-    <string name="please_give_your_rating_amp_also_your_review"><![CDATA[Please give your rating & also your review…]]></string>
-    <string name="how_is_your_order">How is your order?</string>
-    <string name="leave_a_review">Leave a Review</string>
-    <string name="very_good_product_amp_fast_delivery"><![CDATA[Very good product & fast delivery!]]></string>
 </resources>
