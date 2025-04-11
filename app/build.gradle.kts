@@ -2,6 +2,10 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
 
+
+    alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.navigation.safeargs.kotlin)
+
     id("kotlin-kapt")
 
     // Navigation
@@ -9,6 +13,7 @@ plugins {
 
     // DI
     alias(libs.plugins.dagger.hilt.android)
+
 }
 
 android {
@@ -44,10 +49,13 @@ android {
     buildFeatures {
         viewBinding = true
     }
+
+
 }
 
 kapt {
     correctErrorTypes = true
+
 }
 
 dependencies {
@@ -61,6 +69,14 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
+
+    implementation(libs.androidx.navigation.fragment)
+    implementation(libs.androidx.navigation.ui)
+    implementation(libs.kotlinx.serialization.json)
+    implementation(libs.retrofit)
+    implementation(libs.converter.kotlinx.serialization)
+    implementation(libs.okhttp)
+
     // Navigation
     implementation(libs.androidx.navigation.fragment)
     implementation(libs.androidx.navigation.ui)
@@ -68,4 +84,5 @@ dependencies {
     // DI
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
+
 }
